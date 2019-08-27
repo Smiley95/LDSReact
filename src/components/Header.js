@@ -1,9 +1,11 @@
 import React from 'react';
+import {reactLocalStorage} from 'reactjs-localstorage';
 import '../css/Header.scss'
 class Header extends React.Component{
       render(){
         return(
-            <header className="main-header colorHeader">
+          <React.Fragment>
+<header className="main-header colorHeader">
             {/* Logo */}
             <a href="index2.html" className="logo">
               {/* mini logo for sidebar mini 50x50 pixels */}
@@ -25,15 +27,14 @@ class Header extends React.Component{
                   <li className="dropdown user user-menu">
                     <a href="#" className="dropdown-toggle" data-toggle="dropdown">
                       <img src="dist/img/user2-160x160.jpg" className="user-image" alt="User Image" />
-                      <span className="hidden-xs">Alexander Pierce</span>
+                      <span className="hidden-xs">{reactLocalStorage.get('username')}</span>
                     </a>
                     <ul className="dropdown-menu">
                       {/* User image */}
                       <li className="user-header">
                         <img src="dist/img/user2-160x160.jpg" className="img-circle" alt="User Image" />
                         <p className="userInfo">
-                          Alexander Pierce - Invester
-                          <small>User since Nov. 2012</small>
+                          {reactLocalStorage.get('username')}
                         </p>
                       </li>
                       {/* Menu Footer*/}
@@ -51,6 +52,7 @@ class Header extends React.Component{
               </div>
             </nav>
           </header>
+          </React.Fragment>
         );
     }
 }
