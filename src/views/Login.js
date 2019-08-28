@@ -5,7 +5,8 @@ import Dashboard from './Dashboard';
 import '../css/Login.scss'
 class Login extends React.Component {
     constructor(props){
-        super(props);
+      //reactLocalStorage.clear();  
+      super(props);
         this.state={
           username:'',
           password:'',
@@ -18,7 +19,7 @@ class Login extends React.Component {
     
     handleChange= (event)=> {
       const {name, value }= event.target;
-      console.log([name] + " "+ value);
+      //console.log([name] + " "+ value);
       this.setState({[name]: value,        
       });
     }
@@ -55,19 +56,22 @@ class Login extends React.Component {
           reactLocalStorage.set('username',this.state.username);
           reactLocalStorage.set('password',this.state.password);
           reactLocalStorage.set('token',this.state.token);
-          console.log(this.state.token);
+          //console.log(this.state.token);
         }
       })
       .catch(console.log)
       
+  }
+  componentWillUnmount(){
+    console.clear();
   }
     render() {
       if(this.state.token){
         return (
         
           <Router>
-          <Redirect to='/home'/>
-          <Route exact path="/home" render={(props) => <Dashboard {...props} token={this.state.token} username={this.state.username} password={this.state.password} />}/>
+          <Redirect to='/dashboard'/>
+          <Route exact path="/dashboard" render={(props) => <Dashboard  />}/>
         </Router>
         );
       }

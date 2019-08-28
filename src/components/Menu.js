@@ -31,7 +31,7 @@ class Menu extends React.Component{
             <div className="input-group">
             <input type="text" name="q" className="form-control" placeholder="Search" />
               <span className="input-group-btn">
-                <button type="submit" name="search" id="search-btn" className="btn btn-flat">
+                <button type="submit" name="search" id="search-btn" className="btn btn-flat searchbtn" >
                   <i className="fa fa-search" />
                 </button>
               </span>
@@ -41,60 +41,18 @@ class Menu extends React.Component{
           {/* sidebar menu: : style can be found in sidebar.less */}
           <Router>
           <ul className="sidebar-menu" data-widget="tree">
-            <li >
-              <NavLink to="/login" ><i className="fa fa-users" /> <span>Clients</span></NavLink>    
-            </li>
             <li className="active treeview menu-open">
               <NavLink to="/dashboard">
                 <i className="fa fa-dashboard" /> <span>Dashboard</span>
               </NavLink>
             </li>
             <li >
-              <a href="#">
-                <i className="fa fa-files-o" />
-                <span>Layout Options</span>
-              </a>
-            </li>
-            <li>
-              <a href="pages/widgets.html">
-                <i className="fa fa-th" /> <span>Widgets</span>
-              </a>
+              <NavLink to="/login" ><i className="fa fa-users" /> <span>Clients</span></NavLink>    
             </li>
             <li >
               <a href="#">
-                <i className="fa fa-pie-chart" />
-                <span>Charts</span>
-              </a>
-            </li>
-            <li >
-              <a href="#">
-                <i className="fa fa-laptop" />
-                <span>UI Elements</span>
-              </a>
-            </li>
-            <li >
-              <a href="#">
-                <i className="fa fa-edit" /> <span>Forms</span>
-              </a>
-            </li>
-            <li >
-              <a href="#">
-                <i className="fa fa-table" /> <span>Tables</span>
-              </a>
-            </li>
-            <li>
-              <a href="pages/calendar.html">
-                <i className="fa fa-calendar" /> <span>Calendar</span>
-              </a>
-            </li>
-            <li>
-              <a href="pages/mailbox/mailbox.html">
-                <i className="fa fa-envelope" /> <span>Mailbox</span>
-              </a>
-            </li>
-            <li >
-              <a href="#">
-                <i className="fa fa-folder" /> <span>Examples</span>
+                <i className="fa fa-th-list" />
+                <span>Portfolios</span>
               </a>
             </li>
             <li >

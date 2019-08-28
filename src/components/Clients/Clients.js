@@ -1,22 +1,25 @@
 import React from 'react';
 import { render } from 'react-dom';
 import { Tabs, Tab, TabPanel, TabList } from 'react-web-tabs';
+import { faIdBadge } from "@fortawesome/free-solid-svg-icons";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+
 //import '../css/Table.scss'
 import 'react-web-tabs/dist/react-web-tabs.css';
-import {reactLocalStorage} from 'reactjs-localstorage';
+import { reactLocalStorage} from 'reactjs-localstorage';
 class Clients extends React.Component{
-    constructor(props) {
-        super(props);
+  _isMounted;    
+  constructor(props) {
+      super(props);
+      this._isMounted = false;    
         this.state = {
-          
-          username : reactLocalStorage.get("username"),
-          password : reactLocalStorage.get("password"),
           expertID : '',
           clients : []
         };
+        
       }
       componentDidMount() {
-        
+        this._isMounted = true;
         const requestOptions1 = {
           method: 'POST',
           headers : {
@@ -25,10 +28,11 @@ class Clients extends React.Component{
           },
           body:  "\""+reactLocalStorage.get("password")+"\""
         }
-        
         fetch('https://localhost:44334/api/Users/GetUserByName?username='+reactLocalStorage.get("username"),requestOptions1)
         .then(res => res.json())
         .then((data) => {
+          if (this._isMounted){
+           
           this.setState({expertID : data})
           const requestOptions2 = {
             method: 'POST',
@@ -40,18 +44,22 @@ class Clients extends React.Component{
           }
           fetch('https://localhost:44334/api/Investors/GetInvestorsByExpert',requestOptions2)
           .then(res => res.json())
-          .then((data) => {
+          .then((data) => {if (this._isMounted){
             this.setState({clients : data})
-            console.log(this.state.clients)
-            reactLocalStorage.setObject("clients",this.state.clients);
-          })
+          }})
           .catch(console.log)
+          } 
           })
         .catch(console.log)
       
       }
+      componentWillUnmount(){
+        this._isMounted = false;
+        
+      }
     render(){
         return(
+          
         <div className="box">
         <div className="box-header">
           <h3 className="box-title">List of investors</h3>
@@ -65,6 +73,7 @@ class Clients extends React.Component{
                 <th>email</th>
                 <th>time Horizon</th>
                 <th>Birth</th>
+                <th>Profile</th>
               </tr>
             </thead>
             <tbody>
@@ -75,6 +84,7 @@ class Clients extends React.Component{
                               <td>{item.Investor_email}</td>
                               <td>{item.Investor_timeHorizon}</td>
                               <td>{item.Investor_birth}</td>
+                              <td><FontAwesomeIcon icon={faIdBadge} color="rgb(221, 0, 48)" size="lg"/></td>
                           </tr>
                         )
                     })}
@@ -85,6 +95,7 @@ class Clients extends React.Component{
                 <th>email</th>
                 <th>time Horizon</th>
                 <th>Birth</th>
+                <th>Profile</th>
               </tr>
             </tfoot>
           </table>

@@ -87,3 +87,10 @@
   button{
     display:inline-block !important;
   }
+  
+  .rwt__tablist:not([aria-orientation="vertical"]) .rwt__tab[aria-selected="true"]:after{
+    bottom: -1px;
+    left: 0;
+    width: 100%;
+    border-bottom: 3px solid rgb(221, 0, 48);
+  }
