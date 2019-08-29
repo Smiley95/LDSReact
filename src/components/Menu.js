@@ -1,16 +1,27 @@
 import React from 'react';
-import { Link, NavLink } from 'react-router-dom';
+import { Link, NavLink, withRouter } from 'react-router-dom';
 import {reactLocalStorage} from 'reactjs-localstorage';
 import { PropTypes } from "prop-types";
+import { faSignOutAlt } from "@fortawesome/free-solid-svg-icons";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import Login from "../views/Login";
 import {  BrowserRouter as Router, Route, Switch, Redirect } from "react-router-dom";
 class Menu extends React.Component{
   constructor(props) {
+    //localStorage.clear();
     super(props);
-  }  
-  toggleSidebar = () => {
-    
-  };
+    this.logout = this.logout.bind(this);
+    this.dashboard = this.dashboard.bind(this);
+  } 
+  dashboard(){
+    let path='/dashboard';
+    this.props.history.push(path);
+  }
+  
+  logout(){
+    let path='/login';
+    this.props.history.push(path);
+  }
       render(){
         return(
             <React.Fragment>
@@ -42,22 +53,22 @@ class Menu extends React.Component{
           <Router>
           <ul className="sidebar-menu" data-widget="tree">
             <li className="active treeview menu-open">
-              <NavLink to="/dashboard">
+              <a href="/dashboard" onClick={this.dashboard}>
                 <i className="fa fa-dashboard" /> <span>Dashboard</span>
-              </NavLink>
+              </a>
             </li>
             <li >
-              <NavLink to="/login" ><i className="fa fa-users" /> <span>Clients</span></NavLink>    
+              <a href="/Clients" ><i className="fa fa-users" /> <span>Investors</span></a>    
             </li>
             <li >
-              <a href="#">
+              <a href="/Portfolios">
                 <i className="fa fa-th-list" />
                 <span>Portfolios</span>
               </a>
             </li>
             <li >
-              <NavLink className="nav-link" activeClassName="active" to="/login" onClick={this.toggleSidebar}>
-                <i className="fa fa-share" /> <span>Logout</span>
+              <NavLink className="nav-link" to="/login" onClick={this.logout}>
+              <FontAwesomeIcon icon={faSignOutAlt} size="lg"/> <span>Logout</span>
               </NavLink>
             </li>
           </ul>        
@@ -70,7 +81,7 @@ class Menu extends React.Component{
         );
     }
 }
-export default Menu;
+export default withRouter(Menu);
 
 Menu.defaultProps = {
   rtlActive: false,

@@ -3,6 +3,9 @@ import { render } from 'react-dom';
 import { Tabs, Tab, TabPanel, TabList } from 'react-web-tabs';
 import { faIdBadge } from "@fortawesome/free-solid-svg-icons";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import Footer from '..//Footer';
+import Menu from '..//Menu';
+import Header from '..//Header';
 
 //import '../css/Table.scss'
 import 'react-web-tabs/dist/react-web-tabs.css';
@@ -59,7 +62,30 @@ class Clients extends React.Component{
       }
     render(){
         return(
-          
+          <>
+          <Header/>
+          <Menu/>
+          <div className="wrapper">            
+            {/* Left side column. contains the logo and sidebar */}
+            {/* Content Wrapper. Contains page content */}
+            <div className="content-wrapper">
+            <section className="content-header">
+                <h1>
+                  Tables
+                  <small>investors</small>
+                </h1>
+                <ol className="breadcrumb">
+                  <li><a href="#"><i className="fa fa-dashboard" /> Home</a></li>
+                  <li><a href="#">Tables</a></li>
+                  <li className="active">Investors</li>
+                </ol>
+              </section>
+          <div className="box">
+                      <div className="box-header">
+                        <h3 className="box-title">List of investors</h3>
+                      </div>
+                    
+            <div className="box-body">  
         <div className="box">
         <div className="box-header">
           <h3 className="box-title">List of investors</h3>
@@ -100,7 +126,14 @@ class Clients extends React.Component{
             </tfoot>
           </table>
         </div>
-        </div>);
+        </div>
+        </div> 
+            </div>
+            </div> 
+            </div>
+        <Footer/>
+            </>
+        );
     }
 }
 export default Clients;

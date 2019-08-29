@@ -39,11 +39,8 @@ class Header extends React.Component{
                       </li>
                       {/* Menu Footer*/}
                       <li className="user-footer">
-                        <div className="pull-left">
-                          <a href="#" className="btn btn-default btn-flat">Profile</a>
-                        </div>
                         <div className="pull-right">
-                          <a href="#" className="btn btn-default btn-flat">Sign out</a>
+                          <a href="/login" className="btn btn-default btn-flat">Sign out</a>
                         </div>
                       </li>
                     </ul>

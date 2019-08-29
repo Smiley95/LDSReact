@@ -1,5 +1,7 @@
 import React from "react";
 import '../../css/Generals.scss'
+import { faTrophy, faExclamationTriangle, faLandmark, faUsers } from "@fortawesome/free-solid-svg-icons";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 class Generals extends React.Component{
     
     render(){
@@ -18,10 +20,10 @@ class Generals extends React.Component{
                 <div className="wrapper row GeneralInfo">
                     <div className="col-md-3 col-sm-6 col-xs-12">
                     <div className="info-box">
-                        <span className="info-box-icon bg-aqua"><i className="ion ion-ios-gear-outline" /></span>
+                        <span className="info-box-icon bg-aqua"><FontAwesomeIcon icon={faLandmark}  size="lg"/></span>
                         <div className="info-box-content">
-                        <span className="info-box-text">CPU Traffic</span>
-                        <span className="info-box-number">90<small>%</small></span>
+                        <span className="info-box-text">Providers</span>
+                        <span className="info-box-number">90<small></small></span>
                         </div>
                         {/* /.info-box-content */}
                     </div>
@@ -30,9 +32,9 @@ class Generals extends React.Component{
                     {/* /.col */}
                     <div className="col-md-3 col-sm-6 col-xs-12">
                     <div className="info-box">
-                        <span className="info-box-icon bg-red"><i className="fa fa-google-plus" /></span>
+                        <span className="info-box-icon bg-red"><FontAwesomeIcon icon={faExclamationTriangle}  size="lg"/></span>
                         <div className="info-box-content">
-                        <span className="info-box-text">Likes</span>
+                        <span className="info-box-text">Highest loser</span>
                         <span className="info-box-number">41,410</span>
                         </div>
                         {/* /.info-box-content */}
@@ -44,9 +46,9 @@ class Generals extends React.Component{
                     <div className="clearfix visible-sm-block" />
                     <div className="col-md-3 col-sm-6 col-xs-12">
                     <div className="info-box">
-                        <span className="info-box-icon bg-green"><i className="ion ion-ios-cart-outline" /></span>
+                        <span className="info-box-icon bg-green"><FontAwesomeIcon icon={faTrophy}  size="lg"/></span>
                         <div className="info-box-content">
-                        <span className="info-box-text">Sales</span>
+                        <span className="info-box-text">Highest Gainer</span>
                         <span className="info-box-number">760</span>
                         </div>
                         {/* /.info-box-content */}
@@ -56,7 +58,7 @@ class Generals extends React.Component{
                     {/* /.col */}
                     <div className="col-md-3 col-sm-6 col-xs-12">
                     <div className="info-box">
-                        <span className="info-box-icon bg-yellow"><i className="ion ion-ios-people-outline" /></span>
+                        <span className="info-box-icon bg-yellow"><FontAwesomeIcon icon={faUsers}  size="lg"/></span>
                         <div className="info-box-content">
                         <span className="info-box-text">Investors</span>
                         <span className="info-box-number">2,000</span>

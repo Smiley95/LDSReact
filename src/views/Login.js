@@ -5,7 +5,7 @@ import Dashboard from './Dashboard';
 import '../css/Login.scss'
 class Login extends React.Component {
     constructor(props){
-      //reactLocalStorage.clear();  
+      reactLocalStorage.clear();  
       super(props);
         this.state={
           username:'',
