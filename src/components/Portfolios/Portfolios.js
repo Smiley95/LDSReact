@@ -4,6 +4,7 @@ import { Tabs, Tab, TabPanel, TabList } from 'react-web-tabs';
 import { faFolderOpen } from "@fortawesome/free-solid-svg-icons";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { withRouter } from 'react-router-dom';
+import '../../css/Table.scss'
 import Footer from '..//Footer';
 import Menu from '..//Menu';
 import Header from '..//Header';
@@ -127,6 +128,7 @@ class Portfolios extends React.Component{
                         </thead>
                         <tbody>
                             {portfolios.map((item,key) => {
+                                item.Portfolio_creationDate=item.Portfolio_creationDate.slice(0,item.Portfolio_creationDate.indexOf('T'));
                                 return(
                                     <tr>
                                 <td>{item.Portfolio_ID}</td>

@@ -23,7 +23,7 @@ class Generals extends React.Component{
                         <span className="info-box-icon bg-aqua"><FontAwesomeIcon icon={faLandmark}  size="lg"/></span>
                         <div className="info-box-content">
                         <span className="info-box-text">Providers</span>
-                        <span className="info-box-number">90<small></small></span>
+                        <span className="info-box-number">3<small></small></span>
                         </div>
                         {/* /.info-box-content */}
                     </div>
@@ -61,7 +61,7 @@ class Generals extends React.Component{
                         <span className="info-box-icon bg-yellow"><FontAwesomeIcon icon={faUsers}  size="lg"/></span>
                         <div className="info-box-content">
                         <span className="info-box-text">Investors</span>
-                        <span className="info-box-number">2,000</span>
+                        <span className="info-box-number">20</span>
                         </div>
                         {/* /.info-box-content */}
                     </div>

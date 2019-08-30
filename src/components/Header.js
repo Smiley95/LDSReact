@@ -7,7 +7,7 @@ class Header extends React.Component{
           <React.Fragment>
 <header className="main-header colorHeader">
             {/* Logo */}
-            <a href="index2.html" className="logo">
+            <a href="/dashboard" className="logo">
               {/* mini logo for sidebar mini 50x50 pixels */}
               <span className="logo-mini"><img className="logoLineMini" alt="mini logo"/></span>
               {/* logo for regular state and mobile devices */}
@@ -26,13 +26,13 @@ class Header extends React.Component{
                   {/* User Account: style can be found in dropdown.less */}
                   <li className="dropdown user user-menu">
                     <a href="#" className="dropdown-toggle" data-toggle="dropdown">
-                      <img src="dist/img/user2-160x160.jpg" className="user-image" alt="User Image" />
+                      <img src="dist/img/teacher.png" className="user-image" alt="User Image" />
                       <span className="hidden-xs">{reactLocalStorage.get('username')}</span>
                     </a>
                     <ul className="dropdown-menu">
                       {/* User image */}
                       <li className="user-header">
-                        <img src="dist/img/user2-160x160.jpg" className="img-circle" alt="User Image" />
+                        <img src="dist/img/teacher.png" className="img-circle" alt="User Image" />
                         <p className="userInfo">
                           {reactLocalStorage.get('username')}
                         </p>
